@@ -4,23 +4,10 @@ import {
     HistoryAdapter,
     RouterStore,
 } from 'mobx-state-router';
-
+import {routes} from "../routes";
 const notFound = createRouterState('notFound');
 
-const routes = [
-    {
-        name:'login',
-        pattern:'/login'
-    },
-    {
-        name:'tasks',
-        pattern:'/tasks'
-    },
-    {
-        name:'create',
-        pattern:'/tasks/create'
-    }
-];
+
 
 export function router() {
     const routerStore = new RouterStore(routes, notFound);
