@@ -3,14 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.12.2",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
+    "@types/react": "^17.0.14",
     "materialize-css": "^1.0.0-rc.2",
     "mobx": "^6.3.2",
     "mobx-react": "^7.2.0",
     "mobx-react-lite": "^3.2.0",
-    "mobx-state-router": "^5.2.0",
+    "mobx-state-router": "^6.0.0-beta.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-materialize": "^3.9.8",
@@ -40,5 +42,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/react-dom": "^17.0.9",
+    "typescript": "^4.3.5"
   }
 }

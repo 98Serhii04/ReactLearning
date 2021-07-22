@@ -24,6 +24,11 @@ export const routes = [
     },
     {
         name:'tasks',
+        pattern:'/',
+        beforeEnter: checkForUserSignedIn
+    },
+    {
+        name:'tasks',
         pattern:'/tasks',
         beforeEnter: checkForUserSignedIn
     },

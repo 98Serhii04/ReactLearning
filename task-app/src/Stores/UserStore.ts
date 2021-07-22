@@ -1,5 +1,5 @@
-import { makeAutoObservable, observable, action } from "mobx"
-import { createRouterState, RouterState, routerStateToUrl } from 'mobx-state-router';
+import { makeAutoObservable } from "mobx"
+import { createRouterState, RouterState } from 'mobx-state-router';
 import { User } from "../Models/User";
 import { RootStore } from "./RootStore";
 
@@ -13,8 +13,8 @@ export class UserStore{
     loginRedirect: RouterState = defaultState;
 
     constructor(rootStore: RootStore){
-        this.rootStore = rootStore;
         makeAutoObservable(this);
+        this.rootStore = rootStore;
     }
 
     setUser = (user:User) => {
@@ -22,17 +22,13 @@ export class UserStore{
         this.rootStore.routerStore.goToState(this.loginRedirect);
     };
 
-    clearUser = () => {
-        this.user = undefined;
-    };
 
     setLoginRedirect = (routerState: RouterState) => {
         this.loginRedirect = routerState;
-
     };
 
-    logout(){
-        this.clearUser;
+    logout() {
+        this.user = undefined;
         this.rootStore.routerStore.goToState(login);
     }
 }
