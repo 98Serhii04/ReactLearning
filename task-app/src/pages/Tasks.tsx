@@ -1,52 +1,29 @@
 import Button from '@material-ui/core/Button';
 import { useRootStore } from '../contexts';
 import { makeStyles, Theme } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
+import { useState } from 'react';
 
-const useStyles = makeStyles((theme: Theme) => ({
-    form: {
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-    },
-    buttonBar: {
-        marginTop: theme.spacing(4),
-        marginBottom: theme.spacing(4),
-    },
-    footer: {
-        padding: theme.spacing(2),
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'center',
-    },
-    link: {
-        margin: theme.spacing(1),
-    },
-}));
 
 export const Tasks = () => {
-    const classes = useStyles();
     const rootStore = useRootStore();
+    const [name, setName] = useState('')
 
-    const handleSubmit = (event: any) => {
-        event.stopPropagation();
-        event.preventDefault();
-        console.log(rootStore.userStore.user?.email);
-    };
-
+    const handleNameChange = (event: any) =>{
+        setName(event.target.value);
+    }
+    
 
     return (
         <div>
-            <form onSubmit={handleSubmit} className={classes.form}>
-                <div className={classes.buttonBar}>
-                    <Button
-                        variant="contained"
-                        color="primary"
-                        type="submit"
-                    >
-                    Sign In
-                    </Button>
-                </div>
-            </form>
+            <TextField
+                value={name}
+                name="name"
+                label="Name"
+                margin="normal"
+                fullWidth
+                onChange={handleNameChange}
+            />
         </div>
         );
 }
