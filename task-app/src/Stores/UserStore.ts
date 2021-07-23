@@ -1,6 +1,6 @@
 import { makeAutoObservable } from "mobx"
 import { createRouterState, RouterState } from 'mobx-state-router';
-import { User } from "../Models/User";
+import { User } from "../Models/UserModel";
 import { RootStore } from "./RootStore";
 
 const defaultState = createRouterState('tasks');

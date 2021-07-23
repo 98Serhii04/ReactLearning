@@ -1,18 +1,18 @@
 import { makeAutoObservable,IObservableArray, observable} from "mobx"
-import { Task } from "../Models/Task";
+import { TaskModel } from "../Models/TaskModel";
 import { RootStore } from "./RootStore";
 
 
 export class TasksStore{
     rootStore: RootStore;
-    tasks: IObservableArray<Task> = observable.array([]);
+    tasks: IObservableArray<TaskModel> = observable.array([]);
     
     constructor (rootStore: RootStore){
         this.rootStore = rootStore;
         makeAutoObservable(this);
     }
 
-    addTask(task: Task){
+    addTask(task: TaskModel){
         this.tasks.push(task);
     }
 
@@ -21,6 +21,14 @@ export class TasksStore{
         if(element)
         {
             this.tasks.remove(element);
+        }
+    }
+
+    toggleTask(id: number){
+        const element = this.tasks.find(e => e.id === id);
+        if(element)
+        {
+            element.isDone = !element.isDone;
         }
     }
 }
