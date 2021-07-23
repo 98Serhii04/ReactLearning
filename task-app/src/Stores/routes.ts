@@ -3,6 +3,7 @@ import { RootStore } from './RootStore';
 
 
 const login = createRouterState('login');
+const tasks = createRouterState('tasks');
 
 const checkForUserSignedIn = async (
     fromState: RouterState,
@@ -21,11 +22,6 @@ export const routes = [
     {
         name:'login',
         pattern:'/login'
-    },
-    {
-        name:'tasks',
-        pattern:'/',
-        beforeEnter: checkForUserSignedIn
     },
     {
         name:'tasks',
