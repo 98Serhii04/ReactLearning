@@ -2,7 +2,7 @@ import { observer } from "mobx-react-lite";
 import { useRouterStore } from "mobx-state-router";
 import { useRootStore } from "../../contexts";
 import { TasksStore } from "../../Stores/TasksStore"
-import React from 'react';
+import React, { useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -26,6 +26,10 @@ export const Tasks = observer(() => {
     const { tasks } = tasksStore;
     const classes = useStyles();
 
+    useEffect(() => {
+        console.log(tasksStore.tasks);
+    })
+
     return (
         <div>
             <TableContainer component={Paper}>
@@ -34,11 +38,14 @@ export const Tasks = observer(() => {
                         <TableRow>
                             <TableCell></TableCell>
                             <TableCell align="right">Task name</TableCell>
+                            <TableCell></TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
                         {tasks.map((task) => {
-                            <TaskInfo task={task} />
+                            return (
+                                <TaskInfo task={task} />
+                            )
                         })}
                     </TableBody>
                 </Table>

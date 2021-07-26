@@ -21,5 +21,6 @@ export class TaskStore{
         {
             this.task.isDone = !this.task.isDone;
         }
+        console.log(this.task);
     };
 }

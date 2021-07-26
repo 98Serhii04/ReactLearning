@@ -2,10 +2,12 @@ import React from 'react';
 
 import {
     LoginPage,
-    TaskPage
+    TaskPage,
+    CreatePage
 } from './pages';
 
 export const viewMap = {
     login: <LoginPage />,
-    tasks:<TaskPage/>
+    tasks:<TaskPage/>,
+    create: <CreatePage/>
 };

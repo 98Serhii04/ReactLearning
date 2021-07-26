@@ -4,20 +4,23 @@ import { makeStyles, Theme } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import { useState } from 'react';
 import { Tasks } from '../components/Tasks/Tasks';
+import { createRouterState } from 'mobx-state-router';
 
+const create = createRouterState('create');
 
 export const TaskPage = () => {
     const rootStore = useRootStore();
-    const [name, setName] = useState('')
+    
 
-    const handleNameChange = (event: any) =>{
-        setName(event.target.value);
+    const handleClick = (event: any) =>{
+        rootStore.routerStore.goToState(create);
     }
     
 
     return (
         <div>
             <Tasks/>
+            <Button onClick = {handleClick} variant="contained" color="primary">Add</Button>
         </div>
         );
 }
