@@ -48,14 +48,11 @@ export const TaskInfo = observer(({ task }: TaskInfoProps) => {
                     checked={task.isDone}
                 />
             </TableCell>
-            <TableCell component="th" scope="row">
+            <TableCell component="th" scope="row" align="right">
                 {task.name}
             </TableCell>
-            <TableCell component="th" scope="row">
-                {task.id}
-            </TableCell>
-            <TableCell>
-                <Button onClick = {handleDelete} variant="contained" color="primary">Delete</Button>
+            <TableCell align="right">
+                <Button onClick = {handleDelete} variant="contained" color="primary">X</Button>
             </TableCell>
         </TableRow>
         

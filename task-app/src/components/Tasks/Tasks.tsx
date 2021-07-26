@@ -36,9 +36,9 @@ export const Tasks = observer(() => {
                 <Table className={classes.table} size="small" aria-label="a dense table">
                     <TableHead>
                         <TableRow>
-                            <TableCell></TableCell>
+                            <TableCell>Status</TableCell>
                             <TableCell align="right">Task name</TableCell>
-                            <TableCell></TableCell>
+                            <TableCell align="right">Delete</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>

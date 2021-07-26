@@ -21,7 +21,11 @@ const checkForUserSignedIn = async (
 export const routes = [
     {
         name:'login',
-        pattern:'/login'
+        pattern:'/login',
+    },
+    {
+        name:'login',
+        pattern:'/',
     },
     {
         name:'tasks',
@@ -33,13 +37,4 @@ export const routes = [
         pattern:'/tasks/create',
         beforeEnter: checkForUserSignedIn,
     },
-    {
-        name:'notFound',
-        pattern:'/login'
-    },
-    {
-        name: 'checkout',
-        pattern: '/checkout',
-        beforeEnter: checkForUserSignedIn
-    }
 ];

@@ -19,9 +19,11 @@ export const CreatePage = () => {
     }
 
     const handleClick = (name: string) => {
-        tasksStore.addTask(name);
-        console.log(tasksStore.tasks);
-        rootStore.routerStore.goToState(tasks);
+        if(name!='')
+        {
+            tasksStore.addTask(name);
+            rootStore.routerStore.goToState(tasks);
+        }
     }
 
     return (

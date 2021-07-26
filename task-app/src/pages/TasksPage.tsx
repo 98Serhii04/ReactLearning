@@ -10,17 +10,19 @@ const create = createRouterState('create');
 
 export const TaskPage = () => {
     const rootStore = useRootStore();
-    
 
-    const handleClick = (event: any) =>{
+
+    const handleClick = (event: any) => {
         rootStore.routerStore.goToState(create);
     }
-    
+
 
     return (
         <div>
-            <Tasks/>
-            <Button onClick = {handleClick} variant="contained" color="primary">Add</Button>
+            <Tasks />
+            <p>
+                <Button onClick={handleClick} variant="contained" color="primary">Add</Button>
+            </p>
         </div>
-        );
+    );
 }
