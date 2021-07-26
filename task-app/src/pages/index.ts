@@ -1,2 +1,2 @@
 export * from './LoginPage';
-export * from './Tasks';
+export * from './TasksPage';

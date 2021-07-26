@@ -3,9 +3,10 @@ import { useRootStore } from '../contexts';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import { useState } from 'react';
+import { Tasks } from '../components/Tasks/Tasks';
 
 
-export const Tasks = () => {
+export const TaskPage = () => {
     const rootStore = useRootStore();
     const [name, setName] = useState('')
 
@@ -16,14 +17,7 @@ export const Tasks = () => {
 
     return (
         <div>
-            <TextField
-                value={name}
-                name="name"
-                label="Name"
-                margin="normal"
-                fullWidth
-                onChange={handleNameChange}
-            />
+            <Tasks/>
         </div>
         );
 }
