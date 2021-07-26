@@ -35,26 +35,26 @@ export const TaskInfo = observer(({ task }: TaskInfoProps) => {
     }
 
     return (
-        <TableRow
-            hover
-            onClick={() => handleClick()}
-            role="checkbox"
-            aria-checked={task.isDone}
-            tabIndex={-1}
-            key={task.id}
-            selected={task.isDone}>
-            <TableCell padding="checkbox">
-                <Checkbox
-                    checked={task.isDone}
-                />
-            </TableCell>
-            <TableCell component="th" scope="row" align="right">
-                {task.name}
-            </TableCell>
-            <TableCell align="right">
-                <Button onClick = {handleDelete} variant="contained" color="primary">X</Button>
-            </TableCell>
-        </TableRow>
-        
+            <TableRow
+                hover
+                onClick={() => handleClick()}
+                role="checkbox"
+                aria-checked={task.isDone}
+                tabIndex={-1}
+                
+                selected={task.isDone}>
+                <TableCell padding="checkbox">
+                    <Checkbox
+                        checked={task.isDone}
+                    />
+                </TableCell>
+                <TableCell component="th" scope="row" align="center">
+                    {task.name}
+                </TableCell>
+                <TableCell align="left">
+                    <Button onClick={handleDelete} variant="contained" color="primary">X</Button>
+                </TableCell>
+                
+            </TableRow>
     )
 })

@@ -1,9 +1,9 @@
 import { observer } from "mobx-react-lite";
+import { createStyles, lighten, makeStyles, Theme } from '@material-ui/core/styles';
 import { useRouterStore } from "mobx-state-router";
 import { useRootStore } from "../../contexts";
 import { TasksStore } from "../../Stores/TasksStore"
 import React, { useEffect } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -13,11 +13,32 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import { TaskInfo } from "../Task/TaskInfo";
 
-const useStyles = makeStyles({
-    table: {
-        minWidth: 650,
-    },
-});
+const useStyles = makeStyles((theme: Theme) =>
+    createStyles({
+        root: {
+            width: '80%',
+            alignItems: 'center',
+        },
+        paper: {
+            width: '80%',
+            marginBottom: theme.spacing(2),
+        },
+        table: {
+            minWidth: 750,
+        },
+        visuallyHidden: {
+            border: 0,
+            clip: 'rect(0 0 0 0)',
+            height: 1,
+            margin: -1,
+            overflow: 'hidden',
+            padding: 0,
+            position: 'absolute',
+            top: 20,
+            width: 1,
+        },
+    }),
+);
 
 export const Tasks = observer(() => {
     const routerStore = useRouterStore();
@@ -31,25 +52,27 @@ export const Tasks = observer(() => {
     })
 
     return (
-        <div>
-            <TableContainer component={Paper}>
-                <Table className={classes.table} size="small" aria-label="a dense table">
-                    <TableHead>
-                        <TableRow>
-                            <TableCell>Status</TableCell>
-                            <TableCell align="right">Task name</TableCell>
-                            <TableCell align="right">Delete</TableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {tasks.map((task) => {
-                            return (
-                                <TaskInfo task={task} />
-                            )
-                        })}
-                    </TableBody>
-                </Table>
-            </TableContainer>
+        <div className={classes.root}>
+            <Paper className={classes.paper}>
+                <TableContainer component={Paper}>
+                    <Table className={classes.table} size="small" aria-label="a dense table">
+                        <TableHead>
+                            <TableRow>
+                                <TableCell>Status</TableCell>
+                                <TableCell align="center">Task name</TableCell>
+                                <TableCell align="left">Delete</TableCell>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            {tasks.map((task) => {
+                                return (
+                                    <TaskInfo task={task} key={task.id} />
+                                )
+                            })}
+                        </TableBody>
+                    </Table>
+                </TableContainer>
+            </Paper>
         </div>
     )
 })

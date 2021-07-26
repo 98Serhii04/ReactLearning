@@ -45,27 +45,28 @@ export const LoginPage = () => {
     };
 
     return (
-    <div>
-        <form onSubmit={handleSubmit} className={classes.form}>
-            <TextField
-                value={email}
-                name="email"
-                label="Email"
-                margin="normal"
-                fullWidth
-                onChange={handleEmailChange}
-            />
-                    
-            <div className={classes.buttonBar}>
-                <Button
-                    variant="contained"
-                    color="primary"
-                    type="submit"
-                >
-                Sign In
-                </Button>
-            </div>
-        </form>
-    </div>
+        <div>
+            <form onSubmit={handleSubmit} className={classes.form}>
+                <div>
+                    <TextField
+                        value={email}
+                        name="email"
+                        label="Email"
+                        margin="normal"
+                        fullWidth
+                        onChange={handleEmailChange}
+                    />
+                </div>
+                <div className={classes.buttonBar}>
+                    <Button
+                        variant="contained"
+                        color="primary"
+                        type="submit"
+                    >
+                        Sign In
+                    </Button>
+                </div>
+            </form>
+        </div>
     );
 };
